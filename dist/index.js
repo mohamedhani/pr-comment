@@ -29210,16 +29210,17 @@ async function run() {
       repo,
       pull_number: prNumber
     })
-    let filesStatus = {
+    const initFileStatus = {
       addedFiles: 0,
       modifiedFiles: 0,
       deletedFile: 0
     }
-    filesStatus = files.reduce((acm, file) => {
-      acm.addedFiles += file.additions
-      acm.modifiedFiles += file.changes
-      acm.deletedFile += file.deletions
-    }, filesStatus)
+    const filesStatus = files.reduce((acm, file) => {
+      core.debug(acm)
+      acm.addedFiles += file.status === 'added' ? 1 : 0
+      acm.modifiedFiles += file.status === 'modified' ? 1 : 0
+      acm.deletedFile += file.status === 'removed' ? 1 : 0
+    }, initFileStatus)
 
     await octokit.rest.issues.createComment({
       owner,
@@ -29270,7 +29271,7 @@ async function run() {
     })
   } catch (error) {
     // Fail the workflow run if an error occurs
-    core.setFailed(error)
+    core.setFailed(error.message)
   }
 }
 
