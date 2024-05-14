@@ -29216,6 +29216,7 @@ async function run() {
       deletedFile: 0
     }
     for (const file in files) {
+      console.log(file.status)
       filesStatus.addedFiles += file.status === 'added' ? 1 : 0
       filesStatus.modifiedFiles += file.status === 'modified' ? 1 : 0
       filesStatus.deletedFile += file.status === 'removed' ? 1 : 0
