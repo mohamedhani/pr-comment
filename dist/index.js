@@ -29270,7 +29270,7 @@ async function run() {
     })
   } catch (error) {
     // Fail the workflow run if an error occurs
-    core.setFailed(error.message)
+    core.setFailed(error)
   }
 }
 
