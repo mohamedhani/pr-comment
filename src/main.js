@@ -39,7 +39,7 @@ async function run() {
     })
     const labels = new Set()
     for (const file in files) {
-      const extention = file.filename.split('.').pop()
+      const extention = file.split('.').pop()
       switch (extention) {
         case 'md':
           labels.add('docs')
