@@ -1,19 +1,24 @@
-name: 'The name of your action here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
+name: 'pr-comment'
+description: 'It is a pr-comment action'
+author: 'Mohamed Hani'
 
 # Define your inputs here.
 inputs:
-  milliseconds:
-    description: 'Your input description here'
+  owner:
+    description: 'Github Owner Name'
     required: true
-    default: '1000'
+  repo:
+    description: 'GitHub Repository Name'
+    required: true  
+  pr-number:
+    description: 'Pull Request Number'
+    required: true
+  token:
+    description: 'GitHub Token'
+    required: false
+    default: '${{ secrets.GITHUB_TOKEN  }}'
 
 # Define your outputs here.
-outputs:
-  time:
-    description: 'Your output description here'
-
 runs:
   using: node20
   main: dist/index.js
