@@ -9,16 +9,14 @@ inputs:
     required: true
   repo:
     description: 'GitHub Repository Name'
-    required: true  
-  pr-number:
+    required: true
+  pr_number:
     description: 'Pull Request Number'
     required: true
   token:
     description: 'GitHub Token'
     required: false
     default: '${{ secrets.GITHUB_TOKEN  }}'
-
-# Define your outputs here.
 runs:
   using: node20
   main: dist/index.js
