@@ -29215,8 +29215,7 @@ async function run() {
       modifiedFiles: 0,
       deletedFile: 0
     }
-    for (const file in files) {
-      console.log(file.status)
+    for (const file of files) {
       filesStatus.addedFiles += file.status === 'added' ? 1 : 0
       filesStatus.modifiedFiles += file.status === 'modified' ? 1 : 0
       filesStatus.deletedFile += file.status === 'removed' ? 1 : 0
@@ -29232,8 +29231,8 @@ async function run() {
       `
     })
     const labels = new Set()
-    for (const file in files) {
-      const extention = file.split('.').pop()
+    for (const file of files) {
+      const extention = file.filename.split('.').pop()
       switch (extention) {
         case 'md':
           labels.add('docs')
