@@ -7,10 +7,10 @@ on:
   push:
     branches:
       - main
-
 permissions:
-  contents: read
-
+  contents: write
+  pull-requests: write
+  repository-projects: write
 jobs:
   test-javascript:
     name: JavaScript Tests
@@ -43,7 +43,7 @@ jobs:
   test-action:
     name: GitHub Actions Test
     runs-on: ubuntu-latest
-    if: ${{ github.event == 'pull_request' }}
+    if: ${{ github.event_name	 == 'pull_request' }}
     steps:
       - name: Checkout
         id: checkout

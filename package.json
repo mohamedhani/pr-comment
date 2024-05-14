@@ -4,13 +4,13 @@
   "version": "1.0.0",
   "author": "Mohamed Hani",
   "private": true,
-  "homepage": "https://github.com/mohamedhani/pr-comment-action#readme",
+  "homepage": "https://github.com/mohamedhani/pr-comment#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mohamedhani/pr-comment-action.git"
+    "url": "git+https://github.com/mohamedhani/pr-comment.git"
   },
   "bugs": {
-    "url": "https://github.com/mohamedhani/pr-comment-action/issues"
+    "url": "https://github.com/mohamedhani/pr-comment/issues"
   },
   "keywords": [
     "GitHub",
