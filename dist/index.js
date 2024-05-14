@@ -29210,17 +29210,16 @@ async function run() {
       repo,
       pull_number: prNumber
     })
-    let filesStatus = {
+    const filesStatus = {
       addedFiles: 0,
       modifiedFiles: 0,
       deletedFile: 0
     }
-    filesStatus = files.reduce((acm, file) => {
-      acm.addedFiles += file.status === 'added' ? 1 : 0
-      acm.modifiedFiles += file.status === 'modified' ? 1 : 0
-      acm.deletedFile += file.status === 'removed' ? 1 : 0
-    }, filesStatus)
-    console.log(filesStatus)
+    for (const file in files) {
+      filesStatus.addedFiles += file.status === 'added' ? 1 : 0
+      filesStatus.modifiedFiles += file.status === 'modified' ? 1 : 0
+      filesStatus.deletedFile += file.status === 'removed' ? 1 : 0
+    }
     await octokit.rest.issues.createComment({
       owner,
       repo,
