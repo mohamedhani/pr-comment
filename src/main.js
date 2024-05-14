@@ -23,12 +23,11 @@ async function run() {
       deletedFile: 0
     }
     filesStatus = files.reduce((acm, file) => {
-      console.log(filesStatus)
       acm.addedFiles += file.status === 'added' ? 1 : 0
       acm.modifiedFiles += file.status === 'modified' ? 1 : 0
       acm.deletedFile += file.status === 'removed' ? 1 : 0
     }, filesStatus)
-
+    console.log(filesStatus)
     await octokit.rest.issues.createComment({
       owner,
       repo,
