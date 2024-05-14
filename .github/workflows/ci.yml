@@ -47,7 +47,7 @@ jobs:
   test-action:
     name: GitHub Actions Test
     runs-on: ubuntu-latest
-
+    if: ${{ github.event == 'pull_request' }}
     steps:
       - name: Checkout
         id: checkout
@@ -60,7 +60,6 @@ jobs:
           owner: ${{ github.repository_owner }}
           repo: ${{ github.event.repository.name }}
           pr_number: ${{github.event.number}}
-          
 
       - name: Print Output
         id: output

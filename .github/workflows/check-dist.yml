@@ -13,9 +13,6 @@ on:
   pull_request:
     branches:
       - main
-  push:
-    branches:
-      - main
 
 permissions:
   contents: read
@@ -60,4 +57,3 @@ jobs:
             git diff --ignore-space-at-eol --text dist/
             exit 1
           fi
-
